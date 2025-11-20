@@ -1,0 +1,291 @@
+
+body {
+    background: #121212;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 15px;
+    background: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #ff8c00;
+    transform: scale(1.1);
+}
+
+
+.formulario {
+    width: 350px;
+    margin: 20px auto;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.formulario label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.formulario input, .formulario select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    background: #333;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 6px;
+}
+
+.img-form {
+    width: 220px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.img-form:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+
+.page-wrap {
+  max-width: 980px;
+  margin: 30px auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Para pantallas pequeñas: columna única */
+@media (max-width: 880px) {
+  .page-wrap { grid-template-columns: 1fr; padding: 16px; }
+}
+
+/* Tarjeta lateral (imagen / info) */
+.side-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* Imagen grande en la tarjeta lateral */
+.side-card .img-form {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 12px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.side-card .img-form:hover { transform: translateY(-6px) scale(1.02); }
+
+/* Título de página */
+.page-title {
+  margin: 0 0 12px;
+  font-size: 28px;
+  letter-spacing: 0.2px;
+  color: #f5f5f7;
+}
+
+/* Card del formulario */
+.form-card {
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+  transition: transform .18s ease;
+}
+.form-card:hover { transform: translateY(-6px); }
+
+/* Campos y etiquetas dentro de tarjetas */
+.form-card label {
+  display: block;
+  margin: 10px 0 6px;
+  font-size: 14px;
+  color: #dcdcdc;
+}
+.form-card input[type="text"],
+.form-card input[type="email"],
+.form-card textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px;
+  color: #eaeaea;
+  outline: none;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+.form-card input:focus, .form-card textarea:focus {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.7);
+  border-color: rgba(255,102,0,0.95);
+}
+
+/* Select múltiple estilizado */
+.form-card select {
+  width: 100%;
+  min-height: 90px;
+  padding: 10px;
+  background: linear-gradient(180deg,#121212,#0b0b0b);
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Opciones seleccionadas tienen pequeño badge visual (solo efecto con CSS) */
+.form-card select option:checked {
+  background: rgba(255,102,0,0.12);
+}
+
+/* Botones específicos */
+.btn-primary {
+  background: linear-gradient(90deg,#ff6600,#ff8c00);
+  border: none;
+  padding: 12px 18px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(255,102,0,0.12), inset 0 -2px 0 rgba(0,0,0,0.12);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+.btn-primary:hover { transform: translateY(-3px) scale(1.01); opacity: .98; }
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+/* Mensajes de validación */
+.msg {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: none;
+}
+.msg.success {
+  background: rgba(34,197,94,0.12);
+  color: #bff5cf;
+  border: 1px solid rgba(34,197,94,0.12);
+  display: block;
+}
+.msg.error {
+  background: rgba(239,68,68,0.08);
+  color: #ffb3b3;
+  border: 1px solid rgba(239,68,68,0.09);
+  display: block;
+}
+
+/* Layout del examen: preguntas verticales con separación */
+.exam-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.exam-questions .q {
+  background: rgba(255,255,255,0.02);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Respuestas tipo texto */
+.q input[type="text"] {
+  width: 100%;
+}
+
+/* Controles finales */
+.exam-footer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+/* Indicadores visuales de progreso (simple) */
+.progress {
+  height: 10px;
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.progress > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#ff6600,#ffd14d);
+  transition: width .45s ease;
+}
+
+/* Pequeños detalles: íconos en etiquetas (si usás SVG o iconfont) */
+.label-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Select estilo "chips" al mostrar selección — soporte JS recomendado para mostrar chips debajo */
+.chips {
+  margin-top: 8px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.chip {
+  padding:6px 10px;
+  border-radius:999px;
+  background: rgba(255,102,0,0.12);
+  color: #ffd7b8;
+  font-weight:600;
+  font-size:13px;
+}
+
+/* Scrollbar oscuro personalizado (solo navegadores que lo soporten) */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,#2b2b2b,#111);
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.02);
+}
+
+/* Estilo de ayuda (pequeñas instrucciones dentro del formulario) */
+.help {
+  font-size: 13px;
+  color: #9aa6b2;
+  margin-top: 6px;
+}
+
+/* Pequeña animación de entrada para las tarjetas */
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.form-card, .side-card { animation: floatUp .36s ease both; }
